@@ -23,11 +23,22 @@ namespace objected_oriented_programming
         public int Deposit
         {            
             get{return deposit;}
+            set
+            {
+                if(value>0 && value<1_000_000)
+                {
+                    deposit = value;
+                }
+            }
         }
 
         public typesOfBankAccounts Type
         {
             get { return account_type; }
+            set
+            {
+                account_type = value;
+            }
         }
 
         
@@ -36,7 +47,7 @@ namespace objected_oriented_programming
         public BankAccount(int deposit, typesOfBankAccounts type)
         {
             numberOfTheAccount++;
-            this.deposit = deposit;
+            this.Deposit = deposit;
             this.account_type = type;
         }
 
@@ -53,7 +64,7 @@ namespace objected_oriented_programming
         {
             BankAccount bankAccount_1 = new(10000, typesOfBankAccounts.checking_account);
             bankAccount_1.Print();
-
+            
             BankAccount bankAccount_2 = new(1000, typesOfBankAccounts.investment_account);
             bankAccount_2.Print();
 
