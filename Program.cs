@@ -4,14 +4,15 @@ namespace objected_oriented_programming
 {
    abstract class MOSGORGEOTREST
     {
-        string ROLE { get; set; }
+       public abstract string ROLE { get; set; }
         public abstract void Act();
     }
 
     class CLient : MOSGORGEOTREST
     {
-        
-       public override void Act()
+        public override string ROLE { get; set; }
+
+        public override void Act()
         {
             Console.WriteLine("Делаю заказа");
         }
@@ -20,6 +21,7 @@ namespace objected_oriented_programming
 
     class TreatySection : MOSGORGEOTREST
     {
+        public override string ROLE { get; set; }
         public override void Act()
         {
             Console.WriteLine("Заключаю договор");
@@ -28,6 +30,7 @@ namespace objected_oriented_programming
 
     class TaskDepartment : MOSGORGEOTREST
     {
+        public override string ROLE { get; set; }
         public override void Act()
         {
             Console.WriteLine("Подготавливаю план работ!");
@@ -36,6 +39,7 @@ namespace objected_oriented_programming
 
     class Laboratory : MOSGORGEOTREST
     {
+        public override string ROLE { get; set; }
         public override void Act()
         {
             Console.WriteLine("Делаю лабораторные испытания!");
@@ -44,6 +48,7 @@ namespace objected_oriented_programming
 
     class FieldWork : MOSGORGEOTREST
     {
+        public override string ROLE { get; set; }
         public override void Act()
         {
             Console.WriteLine("Отбор проб из скважины!");
