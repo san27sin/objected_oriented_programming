@@ -11,22 +11,12 @@ namespace objected_oriented_programming
 
     class BankAccount
     {
-        private int numberOfTheAccount;
+        private static int numberOfTheAccount = 1000;
         private int deposit;
         private typesOfBankAccounts account_type;
 
         public int NumberOfTheAccount
         {
-            set
-            {
-                if (value > 1000)
-                {
-                    numberOfTheAccount = value;
-                }
-                else
-                    numberOfTheAccount = 1000;
-
-            }
             get
             {
                 return numberOfTheAccount;
@@ -66,12 +56,12 @@ namespace objected_oriented_programming
             }
         }
 
-        public BankAccount() : this(1001) { }
-        public BankAccount(int NumberOfTheAccount) : this(NumberOfTheAccount, 5000) { }
-        public BankAccount(int NumberOfTheAccount, int deposit) : this(NumberOfTheAccount, deposit, typesOfBankAccounts.checking_account) { }
-        public BankAccount(int NumberOfTheAccount, int deposit, typesOfBankAccounts type)
+        
+        public BankAccount() : this( 5000) { }
+        public BankAccount(int deposit) : this(deposit, typesOfBankAccounts.checking_account) { }
+        public BankAccount(int deposit, typesOfBankAccounts type)
         {
-            this.NumberOfTheAccount = NumberOfTheAccount;
+            numberOfTheAccount++;
             this.Deposit = deposit;
             this.Type = type;
         }
@@ -87,15 +77,14 @@ namespace objected_oriented_programming
     {
         static void Main(string[] args)
         {
-            BankAccount bankAccount_1 = new();
+            BankAccount bankAccount_1 = new(10000, typesOfBankAccounts.checking_account);
             bankAccount_1.Print();
 
-            BankAccount bankAccount_2 = new();
-            bankAccount_2.Deposit = 1100;
-            bankAccount_2.NumberOfTheAccount = 1002;
-            bankAccount_2.Type = typesOfBankAccounts.investment_account;
-
+            BankAccount bankAccount_2 = new(1000, typesOfBankAccounts.investment_account);
             bankAccount_2.Print();
+
+            BankAccount bankAccount_3 = new(1000, typesOfBankAccounts.savings_account);
+            bankAccount_3.Print();
         }
     }
 }
