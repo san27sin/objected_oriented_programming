@@ -17,43 +17,17 @@ namespace objected_oriented_programming
 
         public int NumberOfTheAccount
         {
-            get
-            {
-                return numberOfTheAccount;
-            }
+            get {return numberOfTheAccount;}
         }
 
         public int Deposit
-        {
-            set
-            {
-                if (value < 0)
-                {
-                    deposit = 0;
-                }
-                else
-                    deposit = value;
-            }
-
-            get
-            {
-                return deposit;
-            }
+        {            
+            get{return deposit;}
         }
 
         public typesOfBankAccounts Type
         {
-            get
-            {
-                if (account_type == 0)
-                    return 0;
-                else
-                    return account_type;
-            }
-            set
-            {
-                account_type = value;
-            }
+            get { return account_type; }
         }
 
         
@@ -62,8 +36,8 @@ namespace objected_oriented_programming
         public BankAccount(int deposit, typesOfBankAccounts type)
         {
             numberOfTheAccount++;
-            this.Deposit = deposit;
-            this.Type = type;
+            this.deposit = deposit;
+            this.account_type = type;
         }
 
 
