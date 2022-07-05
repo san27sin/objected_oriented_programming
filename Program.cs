@@ -2,7 +2,7 @@
 
 namespace objected_oriented_programming
 {
-    enum typesOfBankAccounts
+    private enum typesOfBankAccounts
     {
         checking_account,
         savings_account,
