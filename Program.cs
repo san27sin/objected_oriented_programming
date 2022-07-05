@@ -9,7 +9,7 @@ namespace objected_oriented_programming
         investment_account
     }
 
-    class BankAccount
+    internal class BankAccount
     {
         private static int numberOfTheAccount = 1000;
         private int deposit;
