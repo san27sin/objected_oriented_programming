@@ -51,7 +51,7 @@ namespace objected_oriented_programming
             }
         }
 
-        public void WithdrawMoney(int money)
+        public bool WithdrawMoney(int money)
         {
             if(money>Deposit)
             {
