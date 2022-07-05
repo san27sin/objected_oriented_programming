@@ -2,60 +2,19 @@
 
 namespace objected_oriented_programming
 {
-   abstract class MOSGORGEOTREST
-    {
-        string ROLE { get; set; }
-        public abstract void Act();
-    }
-
-    class CLient : MOSGORGEOTREST
-    {
-        
-       public override void Act()
-        {
-            Console.WriteLine("Делаю заказа");
-        }
-
-    }
-
-    class TreatySection : MOSGORGEOTREST
-    {
-        public override void Act()
-        {
-            Console.WriteLine("Заключаю договор");
-        }
-    }
-
-    class TaskDepartment : MOSGORGEOTREST
-    {
-        public override void Act()
-        {
-            Console.WriteLine("Подготавливаю план работ!");
-        }
-    }
-
-    class Laboratory : MOSGORGEOTREST
-    {
-        public override void Act()
-        {
-            Console.WriteLine("Делаю лабораторные испытания!");
-        }
-    }
-
-    class FieldWork : MOSGORGEOTREST
-    {
-        public override void Act()
-        {
-            Console.WriteLine("Отбор проб из скважины!");
-        }
-
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
-            
+            BankAccount account_1 = new(10_000, BankAccount.typesOfBankAccounts.checking_account);
+            account_1.Print();
+
+            BankAccount account_2 = new(15_000, BankAccount.typesOfBankAccounts.checking_account);
+            account_2.Print();
+
+            account_1.TransferMoney(account_2, 2000);
+            account_1.Print();
+            account_2.Print();
         }
     }
 }
