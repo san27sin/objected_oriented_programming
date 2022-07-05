@@ -55,7 +55,7 @@ namespace objected_oriented_programming
         {
             if(money>Deposit)
             {
-                Console.WriteLine($"Вам не хватает на счету {money - Deposit}$\n");
+                return false;
             }
             else
             {
