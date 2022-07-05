@@ -32,7 +32,7 @@ namespace objected_oriented_programming
             }
         }
 
-        public void PutMoney(int money)
+        public bool PutMoney(int money)
         {
             if(money > 1_000_000)
             {
