@@ -60,7 +60,7 @@ namespace objected_oriented_programming
             else
             {
                 Deposit -= money;
-                Console.WriteLine($"Операция успешно выполнена, ваш баланс {Deposit}$\n");
+                return true;
             }
         }
 
