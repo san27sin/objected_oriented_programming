@@ -1,61 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace objected_oriented_programming
 {
-   abstract class MOSGORGEOTREST
+    internal class Program
     {
-        string ROLE { get; set; }
-        public abstract void Act();
-    }
-
-    class CLient : MOSGORGEOTREST
-    {
-        
-       public override void Act()
+        public static void SearchMail(ref string s)
         {
-            Console.WriteLine("Делаю заказа");
+            s = s.Substring(s.IndexOf('&') + 1).TrimStart(' ').TrimEnd(' ');
         }
 
-    }
-
-    class TreatySection : MOSGORGEOTREST
-    {
-        public override void Act()
-        {
-            Console.WriteLine("Заключаю договор");
-        }
-    }
-
-    class TaskDepartment : MOSGORGEOTREST
-    {
-        public override void Act()
-        {
-            Console.WriteLine("Подготавливаю план работ!");
-        }
-    }
-
-    class Laboratory : MOSGORGEOTREST
-    {
-        public override void Act()
-        {
-            Console.WriteLine("Делаю лабораторные испытания!");
-        }
-    }
-
-    class FieldWork : MOSGORGEOTREST
-    {
-        public override void Act()
-        {
-            Console.WriteLine("Отбор проб из скважины!");
-        }
-
-    }
-
-    class Program
-    {
         static void Main(string[] args)
         {
-            
+            List<string> mails = new();
+            try
+            {
+                using (StreamReader sr = new StreamReader($"{Directory.GetCurrentDirectory()}\\name_mail.txt"))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        SearchMail(ref line);
+                        mails.Add(line);
+                    }
+                }
+
+                using (StreamWriter sw = File.CreateText($"{Directory.GetCurrentDirectory()}\\mails.txt"))
+                {
+                    foreach(string mail in mails)
+                    {
+                        sw.WriteLine(mail);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
