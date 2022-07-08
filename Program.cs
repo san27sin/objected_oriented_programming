@@ -1,16 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace objected_oriented_programming
-{  
+{
     class Program
     {
         static void Main(string[] args)
         {
-            Building tower_1 = new(100, 500, 4);
-            tower_1.Print();
+            var tower_1 = Building.Creater.CreateBuild(120, 200, 5);
+            var tower_2 = Building.Creater.CreateBuild(200, 50, 10);
+            var tower_3 = Building.Creater.CreateBuild(300, 190, 10);
 
-            Building tower_2 = new(50, 200, 6);
-            tower_2.Print();
+            Building.Creater.DestroyBuild(tower_1);
+            Building.Creater.DestroyBuild(tower_3);           
         }
     }
 }

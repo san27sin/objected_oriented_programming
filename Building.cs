@@ -1,4 +1,7 @@
-﻿using System;
+﻿#nullable enable
+using objected_oriented_programming;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +9,42 @@ using System.Threading.Tasks;
 
 namespace objected_oriented_programming
 {
-    public class Building
+    internal class Building
     {
+        internal class Creater
+        {
+            private static int _Count;
+            private Creater() { }
+            private static Hashtable? hashtable;
+            
+            public static Building CreateBuild(double height, int numberOfTheFlats, int numberOfTheEntrences)
+            {
+                Building tower = new(height, numberOfTheFlats, numberOfTheEntrences);
+                if (hashtable is null)
+                    hashtable = new();
+
+                hashtable.Add(tower.NumberOfTheBuilding, tower);
+                return tower;
+            }
+
+            public static void DestroyBuild(Building build)
+            {
+                if (hashtable.Contains(build.NumberOfTheBuilding))
+                    hashtable.Remove(build.NumberOfTheBuilding);
+            }
+
+        }
+
+        //3 переменные
+        private Building _Head;
+        private Building _Tail;
+
         private int _NumberOfTheBuilding, _NumberOfTheFloors, _NumberOfTheFlats, _NumberOfTheEntrences;
         private double _Height;
         private static int _Number;
 
+        public Building First { get; set; }
+        public Building Last { get; set; }
 
         public int NumberOfTheBuilding
         {
@@ -100,15 +133,16 @@ namespace objected_oriented_programming
         private void GenerateTheNumberOfTheBuilding()
         {
             _NumberOfTheBuilding = ++_Number; 
-        }                
+        }
 
-        public Building(double height, int numberOfTheFlats, int numberOfTheEntrences)
+        private Building(double height, int numberOfTheFlats, int numberOfTheEntrences)
         {
             Height = height;
             NumberOfTheFlats = numberOfTheFlats;
             NumberOfTheEntrences = numberOfTheEntrences;
             NumberOfTheFloor = (int)Height / 3;
             GenerateTheNumberOfTheBuilding();
-        }
+        }        
     }
 }
+
