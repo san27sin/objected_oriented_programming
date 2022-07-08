@@ -1,4 +1,4 @@
-﻿#nullable enable
+
 using objected_oriented_programming;
 using System;
 using System.Collections;
@@ -35,16 +35,9 @@ namespace objected_oriented_programming
 
         }
 
-        //3 переменные
-        private Building _Head;
-        private Building _Tail;
-
         private int _NumberOfTheBuilding, _NumberOfTheFloors, _NumberOfTheFlats, _NumberOfTheEntrences;
         private double _Height;
         private static int _Number;
-
-        public Building First { get; set; }
-        public Building Last { get; set; }
 
         public int NumberOfTheBuilding
         {
