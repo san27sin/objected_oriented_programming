@@ -5,4 +5,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="library_building">
+      <HintPath>..\library_building\bin\Release\library_building.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
