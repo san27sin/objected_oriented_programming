@@ -9,12 +9,48 @@ namespace objected_oriented_programming
     {
         static void Main(string[] args)
         {
-            var tower_1 = Building.Creater.CreateBuild(120, 200, 5);
-            var tower_2 = Building.Creater.CreateBuild(200, 50, 10);
-            var tower_3 = Building.Creater.CreateBuild(300, 190, 10);
+            RationalNumber a = new(3, 4);
+            RationalNumber b = new(1, 8);
 
-            Building.Creater.DestroyBuild(tower_1);
-            Building.Creater.DestroyBuild(tower_3);           
+            Console.WriteLine(a==b);
+
+            Console.WriteLine(a != b);
+
+            Console.WriteLine(a.Equals(b));
+
+            Console.WriteLine(a.GetHashCode());
+
+            Console.WriteLine(b.GetHashCode());
+
+            Console.WriteLine(a < b);
+
+            Console.WriteLine(a > b);
+
+            Console.WriteLine(a <= b);
+
+            Console.WriteLine(a >= b);
+
+            Console.WriteLine(a + b);
+
+            Console.WriteLine(a - b);
+
+            Console.WriteLine(++a);
+
+            Console.WriteLine(++b);
+
+            Console.WriteLine(--a);
+
+            Console.WriteLine(--b);
+
+            Console.WriteLine(a * b);
+
+            Console.WriteLine(a / b);
+
+            Console.WriteLine(a % b);
+
+            Console.WriteLine(a.ToString());
+
+            Console.WriteLine(b.ToString());
         }
     }
 }
