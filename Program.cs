@@ -10,7 +10,7 @@ namespace objected_oriented_programming
         static void Main(string[] args)
         {
             RationalNumber a = new(3, 4);
-            RationalNumber b = new(1, 8);
+            RationalNumber b = new(3, 7);
 
             Console.WriteLine(a==b);
 

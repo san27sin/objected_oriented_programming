@@ -6,62 +6,57 @@ using System.Threading.Tasks;
 
 namespace objected_oriented_programming
 {
-    internal class RationalNumber
+    readonly struct RationalNumber//структура вместо класса из-за быстродействия, МАЛО ДАННЫХ
     {
-        private int _numerator;
-        private int _denominator;
+        private readonly int _numerator;
+        private readonly int _denominator;
 
         public int Numerator
         {
             get { return _numerator; }
-            set
-            {
-                if (value < 0)
-                    _numerator = 1;
-                else
-                    _numerator = value;
-            }
+            
         }
 
         public int Denominator
         {
             get { return _denominator; }
-            set
-            {
-                if (value < 0)
-                    _denominator = 1;
-                else
-                    _denominator = value;
-            }
         }
 
         public RationalNumber(int numerator) : this(numerator, 1) { }
         public RationalNumber(int numerator, int denominator)
         {
-            Numerator = numerator;
-            Denominator = denominator;
+            _numerator = numerator;
+            _denominator = denominator;
         }
 
         public static bool operator ==(RationalNumber a, RationalNumber b)
         {
-            return (a.Numerator == b.Numerator && a.Denominator == b.Denominator);
+            return a.Equals(b);
         }
 
         public static bool operator !=(RationalNumber a, RationalNumber b)
         {
-            return (a.Numerator != b.Numerator || a.Denominator != b.Denominator);
+            return !a.Equals(b);
         }
 
         public override bool Equals(object obj)
         {
             if (obj == null)
                 return false;
-            return obj is RationalNumber && this == (RationalNumber)obj;
+            if (obj is RationalNumber)
+            {
+                RationalNumber b = (RationalNumber)obj;
+                return (this.Numerator == b.Numerator && this.Denominator == b.Denominator);
+            }
+                
+            else
+                return false;
         }
 
         public override int GetHashCode()
         {
-            return Numerator ^ Denominator;
+            //return Numerator ^ Denominator; -- Плохой hashсode из-за того что может повторится с другим объектом
+            return Tuple.Create(Numerator, Denominator).GetHashCode();
         }
 
         public static bool operator >(RationalNumber a, RationalNumber b)
@@ -105,7 +100,7 @@ namespace objected_oriented_programming
             if (a.Denominator == b.Denominator)
                 return new(a.Numerator + b.Numerator, a.Denominator);
             else
-                return new(a.Numerator * b.Denominator + b.Numerator * b.Denominator, a.Denominator * b.Denominator);
+                return new(a.Numerator * b.Denominator + b.Numerator * a.Denominator, a.Denominator * b.Denominator);
         }
 
         public static RationalNumber operator -(RationalNumber a, RationalNumber b)
@@ -113,21 +108,26 @@ namespace objected_oriented_programming
             if (a.Denominator == b.Denominator)
                 return new(a.Numerator - b.Numerator, a.Denominator);
             else
-                return new(a.Numerator * b.Denominator - b.Numerator * b.Denominator, a.Denominator * b.Denominator);
+                return new(a.Numerator * b.Denominator - b.Numerator * a.Denominator, a.Denominator * b.Denominator);
         }
 
+
+        //надо ли создавать новую структуру при унарной операции
         public static RationalNumber operator ++(RationalNumber a)
         {
-            a.Numerator++;
-            return a;
+            int num = a.Numerator;
+            return new RationalNumber(++num, a.Denominator);
         }
 
         public static RationalNumber operator --(RationalNumber a)
         {
-            a.Numerator--;
             if (a.Numerator == 0)
-                a.Numerator = -1;
-            return a;
+                return a;
+            else
+            {
+                int num = a.Numerator;
+                return new RationalNumber(--num, a.Denominator);
+            }            
         }
 
         public override string ToString()
@@ -162,7 +162,9 @@ namespace objected_oriented_programming
 
         public static int operator %(RationalNumber a, RationalNumber b)
         {
-            return a.Denominator * b.Numerator - a.Numerator * b.Denominator;
+            int num = a.Numerator * b.Denominator;
+            int den = b.Numerator * a.Denominator;
+            return num % den;
         }
     }
     
