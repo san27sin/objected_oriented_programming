@@ -52,7 +52,13 @@ namespace objected_oriented_programming
         public override int GetHashCode()
         {
             //return Numerator ^ Denominator; -- Плохой hashсode из-за того что может повторится с другим объектом
-            return Tuple.Create(Numerator, Denominator).GetHashCode();
+            var hash = 331; // простое число
+            unchecked
+            {
+                hash = (hash * 331) ^ Numerator.GetHashCode();
+                hash = (hash * 331) ^ Denominator.GetHashCode();
+            }
+            return hash;
         }
 
         public static bool operator >(RationalNumber a, RationalNumber b)
