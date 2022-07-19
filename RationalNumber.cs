@@ -31,7 +31,7 @@ namespace objected_oriented_programming
 
         public static bool operator ==(RationalNumber a, RationalNumber b)
         {
-            return a.Equals(b);
+            return Equals(a, b);
         }
 
         public static bool operator !=(RationalNumber a, RationalNumber b)
