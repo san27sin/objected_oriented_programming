@@ -36,7 +36,7 @@ namespace objected_oriented_programming
 
         public static bool operator !=(RationalNumber a, RationalNumber b)
         {
-            return !a.Equals(b);
+            return !(a == b);
         }
 
         public override bool Equals(object obj)
