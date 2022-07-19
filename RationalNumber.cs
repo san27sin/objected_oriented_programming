@@ -100,7 +100,7 @@ namespace objected_oriented_programming
             if (a.Denominator == b.Denominator)
                 return new(a.Numerator + b.Numerator, a.Denominator);
             else
-                return new(a.Numerator * b.Denominator + b.Numerator * a.Denominator, a.Denominator * b.Denominator);
+                return (double)a.Numerator / a.Denominator > (double)b.Numerator / b.Denominator;
         }
 
         public static RationalNumber operator -(RationalNumber a, RationalNumber b)
