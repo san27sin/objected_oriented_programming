@@ -5,34 +5,27 @@ namespace objected_oriented_programming
     class Program
     {
         static void Main(string[] args)
-        {            
-            BankAccount bankAccount_1 = new(10000, BankAccount.typesOfBankAccounts.checking_account);
-           
-            
-            BankAccount bankAccount_2 = new(1000, BankAccount.typesOfBankAccounts.investment_account);
-            
+        {
+            var point = new Point(10, 50, 1, false);
+            Console.WriteLine(point.ToString());
 
-            BankAccount bankAccount_3 = new(1000, BankAccount.typesOfBankAccounts.investment_account);
+            var circle_1 = new Circle(10);
+            var circle_2 = new Circle(15,0,5,2,true);
 
-            object obj = "hello";
+            circle_2.Visible = false;
+            circle_2.Radius = 25;
+            circle_2.MoveHorizontal(20);
+            circle_2.MoveVertical(40);
+            double cSquare = circle_2.Square();
+            Console.WriteLine(circle_2.ToString());
 
-            Console.WriteLine(bankAccount_1 == obj);
+            var rectangle_1 = new Rectangle(140, 200);
+            var rectangle_2 = new Rectangle(40, 30, 30, 0, 1, true);
+            double rSquare = rectangle_2.Square();
+            rectangle_2.MoveHorizontal(123);
+            rectangle_2.MoveVertical(45);
 
-            Console.WriteLine(bankAccount_1 == bankAccount_2);
-
-            Console.WriteLine(bankAccount_1 != bankAccount_2);
-
-            Console.WriteLine(bankAccount_3 == bankAccount_2);
-
-            Console.WriteLine(bankAccount_3 != bankAccount_2);
-
-            Console.WriteLine(bankAccount_3.ToString());
-
-            Console.WriteLine(bankAccount_1.GetHashCode());
-
-            Console.WriteLine(bankAccount_2.GetHashCode());
-
-            Console.WriteLine(bankAccount_3.GetHashCode());
+            Console.WriteLine(rectangle_2.ToString());
         }
     }
 }
