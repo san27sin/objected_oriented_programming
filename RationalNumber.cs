@@ -43,12 +43,8 @@ namespace objected_oriented_programming
         {
             if (obj == null)
                 return false;
-            if (obj is RationalNumber)
-            {
-                RationalNumber b = (RationalNumber)obj;
-                return (this.Numerator == b.Numerator && this.Denominator == b.Denominator);
-            }
-                
+            if (obj is RationalNumber b)
+                return (Numerator == b.Numerator && Denominator == b.Denominator);           
             else
                 return false;
         }
