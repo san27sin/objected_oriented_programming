@@ -6,26 +6,26 @@ namespace objected_oriented_programming
     {
         static void Main(string[] args)
         {
-            var point = new Point(10, 50, 1, false);
-            Console.WriteLine(point.ToString());
+            
+            var word = new ACoder("hello");
+            word.Decode();
+            word.Encode();
+            string word_1 = word.Text;
+            word.Decode();
+            string word_2 = word.Text;
+            
 
-            var circle_1 = new Circle(10);
-            var circle_2 = new Circle(15,0,5,2,true);
+            var sent = new BCoder("AAA");
+            sent.Encode();
+            string sen_1 = sent.Text;
+            sent.Decode();
+            string sen_2 = sent.Text;
 
-            circle_2.Visible = false;
-            circle_2.Radius = 25;
-            circle_2.MoveHorizontal(20);
-            circle_2.MoveVertical(40);
-            double cSquare = circle_2.Square();
-            Console.WriteLine(circle_2.ToString());
-
-            var rectangle_1 = new Rectangle(140, 200);
-            var rectangle_2 = new Rectangle(40, 30, 30, 0, 1, true);
-            double rSquare = rectangle_2.Square();
-            rectangle_2.MoveHorizontal(123);
-            rectangle_2.MoveVertical(45);
-
-            Console.WriteLine(rectangle_2.ToString());
+            var sentence = new BCoder("bbb");
+            sentence.Encode();
+            string sentence_1 = sentence.Text;
+            sentence.Decode();
+            string sentence_2 = sentence.Text;
         }
     }
 }
