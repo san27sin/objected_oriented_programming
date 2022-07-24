@@ -93,7 +93,7 @@ namespace objected_oriented_programming
 
         public static bool operator ==(BankAccount a, BankAccount b)
         {
-            return a.Equals(b);
+            return Equals(a, b);
         }
 
         public static bool operator !=(BankAccount a, BankAccount b)
