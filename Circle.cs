@@ -8,7 +8,7 @@ namespace objected_oriented_programming
 {
     public class Circle : Point, IMathFigure
     {
-        private const double pi = 3.14;
+        private const double pi = Math.PI;
         private double _radius;
 
         public double Square() => pi * _radius * _radius;
