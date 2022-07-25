@@ -8,10 +8,9 @@ namespace objected_oriented_programming
 {
     public class Circle : Point, IMathFigure
     {
-        private const double pi = 3.14;
         private double _radius;
 
-        public double Square() => pi * _radius * _radius;
+        public double Square() => Math.PI * _radius * _radius;
         
         public double Radius
         {
@@ -24,12 +23,14 @@ namespace objected_oriented_programming
             return $"Окружность: координаты х:{X} y:{Y},площадь {Square()} см^2, цвет {Color}, визуально {Visible}.";
         }
 
-        public Circle(double radius):base(0,0,0,true)
+        public Circle(double radius)
+            :base(0,0,0,true)
         {
             _radius = radius;
         }        
 
-        public Circle(double radius, double x, double y, int color, bool visible) : base(x, y, color, visible)
+        public Circle(double radius, double x, double y, int color, bool visible) 
+            : base(x, y, color, visible)
         {
             _radius = radius;
         }

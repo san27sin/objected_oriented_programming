@@ -23,6 +23,11 @@ namespace objected_oriented_programming
             set { _visible = value; }
         }
         
+        public virtual string ToString()
+        {
+            return $"Фигура: {Color}, {Visible}";
+        }
+
         protected Figure(int color, bool visible)
         {
             _color = color;

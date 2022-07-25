@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace objected_oriented_programming
 {
-    interface IMathFigure
+    public interface IMove
     {
-        double Square();
+        void MoveHorizontal(double x);
+
+        void MoveVertical(double y);
     }
 }

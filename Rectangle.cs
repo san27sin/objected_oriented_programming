@@ -17,7 +17,7 @@ namespace objected_oriented_programming
             set
             {
                 if (value < 0)
-                    _width = 1;
+                    throw new Exception("Ширина не может быть меньше нуля.");
                 else
                     _width = value;
             }
@@ -29,7 +29,7 @@ namespace objected_oriented_programming
             set
             {
                 if (value < 0)
-                    _length = 1;
+                    throw new Exception("Длина не может быть меньше нуля.");
                 else
                     _length = value;
             }
@@ -42,9 +42,11 @@ namespace objected_oriented_programming
             return $"Прямоугольник: координаты х:{X} y:{Y},площадь {Square()} см^2, цвет {Color}, визуально {Visible}.";
         }
 
-        public Rectangle(double width, double length) : this(width, length, 0, 0, 0, true) { }
+        public Rectangle(double width, double length) 
+            : this(width, length, 0, 0, 0, true) { }
         
-        public Rectangle(double width, double length, double x, double y, int color, bool visible) : base(x,y,color,visible)
+        public Rectangle(double width, double length, double x, double y, int color, bool visible) 
+            : base(x,y,color,visible)
         {
             Width = width;
             Length = length;

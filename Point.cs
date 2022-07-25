@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace objected_oriented_programming
 {
-    public class Point : Figure
+    public class Point : Figure, IMove
     {
         private double _x;
         private double _y;
