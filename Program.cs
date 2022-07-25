@@ -2,60 +2,29 @@
 
 namespace objected_oriented_programming
 {
-   abstract class MOSGORGEOTREST
-    {
-        string ROLE { get; set; }
-        public abstract void Act();
-    }
-
-    class CLient : MOSGORGEOTREST
-    {
-        
-       public override void Act()
-        {
-            Console.WriteLine("Делаю заказа");
-        }
-
-    }
-
-    class TreatySection : MOSGORGEOTREST
-    {
-        public override void Act()
-        {
-            Console.WriteLine("Заключаю договор");
-        }
-    }
-
-    class TaskDepartment : MOSGORGEOTREST
-    {
-        public override void Act()
-        {
-            Console.WriteLine("Подготавливаю план работ!");
-        }
-    }
-
-    class Laboratory : MOSGORGEOTREST
-    {
-        public override void Act()
-        {
-            Console.WriteLine("Делаю лабораторные испытания!");
-        }
-    }
-
-    class FieldWork : MOSGORGEOTREST
-    {
-        public override void Act()
-        {
-            Console.WriteLine("Отбор проб из скважины!");
-        }
-
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
-            
+            var point = new Point(10, 20, 1, true);
+            IMove move = point;
+            move.MoveHorizontal(80);
+            move.MoveVertical(150);
+            Console.WriteLine(point.ToString());
+
+
+            var circle = new Circle(100);
+            circle.Visible = true;
+            IMathFigure square = circle;
+            square.Square();
+            Console.WriteLine(circle.ToString());
+
+
+            var rectangle = new Rectangle(100, 20);
+            rectangle.Visible = false;
+            rectangle.MoveVertical(400);
+            double area = rectangle.Square();
+            Console.WriteLine(rectangle.ToString());
         }
     }
 }
